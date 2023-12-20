@@ -24,7 +24,7 @@ const Home = () => {
         pauseOnHover
         theme="light"
         />
-    <main className="min-h-screen pt-24 grid grid-cols-1 md:grid-cols-3 md:px-4">
+    <main className="min-h-screen pt-5 grid grid-cols-1 md:grid-cols-3 md:px-4">
 
       <div>
         <SearchTable tableSearchParams={tableSearchParams} setTableSearchParams={setTableSearchParams} />
