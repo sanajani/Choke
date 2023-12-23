@@ -1,8 +1,8 @@
 
 export const list_of_districts = [
   {
-    label:'',
-    value: '...'
+    label:'سر تا سر کشور',
+    value: 'سر تا سر کشور'
   },
   {
       label: 'هرات',

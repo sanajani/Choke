@@ -18,6 +18,7 @@ const Contact = lazy(() => import('../pages/Contact'))
 const UpdateAccount = lazy(() => import('../pages/UpdateAccount'))
 const Profile = lazy(() => import('../pages/Profile'))
 const Signin = lazy(() => import('../pages/Signin'))
+const Hire = lazy(() => import('../pages/Hire'))
 const EditProfileProtectRoute = lazy(() => import('../protectedRoutes/EditProfileProtectRoute'))
 const ProtectSignup = lazy(() => import('../protectedRoutes/ProtectSignup'))
 import Fallback from '../components/Fallback';
@@ -28,6 +29,7 @@ export const router = createBrowserRouter(
         <Route path='/' element={<Suspense fallback={<Fallback />}><RootLayout/></Suspense>}>
             <Route index element={<Suspense fallback={<Fallback/>}><Home/></Suspense>} />
             <Route path='contact' element={<Suspense fallback={<Fallback/>}><Contact/></Suspense>}/>
+            <Route path='hire' element={<Suspense fallback={<Fallback/>}><Hire/></Suspense>}/>
             <Route path='signup' element={<Suspense fallback={<Fallback/>}><ProtectSignup><Signup/></ProtectSignup></Suspense>}/>
             <Route path='signin' element={<Suspense fallback={<Fallback/>}><ProtectSignup><Signin/></ProtectSignup></Suspense>}/>
             <Route path='updateprofile' element={<Suspense fallback={<Fallback/>}><EditProfileProtectRoute><UpdateAccount/></EditProfileProtectRoute></Suspense>}/>

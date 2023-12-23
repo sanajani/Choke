@@ -6,4 +6,17 @@
     .active{
         @apply border-b-2 border-white 
     }
+    .bg-image{
+        background-image: url("./images/hire-bg.jpg");
+        background-repeat: no-repeat;
+        object-fit: cover;
+        width: 100%;
+
+        color: white;
+
+        background-position: center;
+        background-size: cover;
+        background-color: #cccccc;
+        /* margin: 20px 0; */
+    }
 }

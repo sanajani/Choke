@@ -1,13 +1,17 @@
-import Navbar from '../components/Navbar'
+// import Navbar from '../components/Navbar'
 import { Outlet } from 'react-router-dom'
+import Nav from '../components/newNavbar/nav'
+import Footer from '../components/Footer'
 
 const RootLayout = () => {
   return (
-    <div className='min-h-screen pt-[70px]'>
-        <header>
-            <Navbar />
+    <div className='min-h-screen'>
+        <header className=''>
+            {/* <Navbar /> */}
+            <Nav/>
         </header>
-        <main><Outlet /></main>
+        <main className='min-h-screen'><Outlet /></main>
+        <Footer/>
     </div>
   )
 }
