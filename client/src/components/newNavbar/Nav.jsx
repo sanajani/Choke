@@ -12,7 +12,7 @@ const Nav = () => {
   return (
     <nav className={`py-2 text-left bg-white shadow-md flex justify-between items-center px-2 relative`}>
         <Link
-         className='text-sm bg-blue-900 px-5 py-2 rounded-full text-white font-semibold  hover:bg-gray-800 transition-all hover:text-yellow-500' to='/'
+         className='text-sm bg-blue-900 px-5 py-2 rounded-full text-white font-semibold  hover:bg-gray-800 transition-all hover:text-yellow-500' to='/hire-form'
         >ثبت آگاهی استخدام</Link>
         <div className='flex items-center gap-3'>
             <Link to='/'>

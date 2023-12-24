@@ -1,5 +1,6 @@
 /* eslint-disable react-refresh/only-export-components */
 // react-router package
+
 import {
     createBrowserRouter,
     createRoutesFromElements,
@@ -22,6 +23,8 @@ const Hire = lazy(() => import('../pages/Hire'))
 const EditProfileProtectRoute = lazy(() => import('../protectedRoutes/EditProfileProtectRoute'))
 const ProtectSignup = lazy(() => import('../protectedRoutes/ProtectSignup'))
 import Fallback from '../components/Fallback';
+import HireDataPage from '../pages/HireDataPage';
+// const HireComponent = lazy(() => import('../pages/HireDataPage'))
 
 export const router = createBrowserRouter(
     createRoutesFromElements(
@@ -29,6 +32,7 @@ export const router = createBrowserRouter(
         <Route path='/' element={<Suspense fallback={<Fallback />}><RootLayout/></Suspense>}>
             <Route index element={<Suspense fallback={<Fallback/>}><Home/></Suspense>} />
             <Route path='contact' element={<Suspense fallback={<Fallback/>}><Contact/></Suspense>}/>
+            <Route path='hire-form' element={<HireDataPage/>} />
             <Route path='hire' element={<Suspense fallback={<Fallback/>}><Hire/></Suspense>}/>
             <Route path='signup' element={<Suspense fallback={<Fallback/>}><ProtectSignup><Signup/></ProtectSignup></Suspense>}/>
             <Route path='signin' element={<Suspense fallback={<Fallback/>}><ProtectSignup><Signin/></ProtectSignup></Suspense>}/>
