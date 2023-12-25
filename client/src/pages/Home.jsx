@@ -1,7 +1,7 @@
 import SearchAndPlace from '../components/homepagecomponents/SearchAndPlace'
-import Button from '../components/Button'
 import { IoIosArrowDown } from 'react-icons/io'
 import FindJobHomePageComponent from '../components/homepagecomponents/FindJobHomePageComponent'
+import { Link } from 'react-router-dom'
 
 const Home = () => {
   return (
@@ -18,18 +18,22 @@ const Home = () => {
         <div className='w-[90%] mx-auto'>
         <SearchAndPlace />
         </div>
-        <Button
-          text='جستجو فرصت های شغلی'
-          style='block text-center mx-auto bg-yellow-300 transition-all hover:bg-gray-600 hover:text-yellow-300 font-bold mt-5 px-4 py-1 rounded-xl '
-        />
+        <Link
+        to='/jobs'
+          className='text-center block w-fit mx-auto bg-yellow-300 transition-all hover:bg-gray-600 hover:text-yellow-300 font-bold mt-5 px-4 py-1 rounded-xl '
+        >
+          جستجو فرصت های شغلی
+        </Link>
         <div className=' bg-gray-100 mt-12 py-6 rounded-md'>
           <p className='text-center py-2 font-semibold text-base sm:text-lg md:text-xl'>
             خدمات بررسی اولیه و جذب نیرو جهت استخدام
           </p>
-          <Button
-            text='بخش کارفرمایان'
-            style='block text-center mx-auto bg-gray-600 text-white font-bold mt-5 px-6 py-2 rounded-xl '
-          />
+          <Link
+        to='/hire'
+          className='text-center block w-fit mx-auto bg-gray-300 transition-all hover:bg-yellow-600 text-gray-600 hover:text-yellow-300 font-bold mt-5 px-4 py-1 rounded-xl '
+        >
+          بخش کارفرمایان
+        </Link>
         </div>
         <div
         className='mx-auto my-12 cursor-pointer flex justify-center w-fit p-2 rounded-full border-2 border-gray-500 font-bold '>

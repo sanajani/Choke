@@ -2,7 +2,7 @@ import { IoIosClose } from "react-icons/io";
 import { useState } from "react";
 
 const Tags = () => {
-    const [tags,setTags] = useState(['hi','2','4'])
+    const [tags,setTags] = useState([])
 
     const addTag = (event) => {
         if(event.target.value !== ''){
@@ -13,7 +13,7 @@ const Tags = () => {
 
     const removeTag = (index) => {
         console.log(index);
-        const newTags = tags.filter((value, currentIndex ) => {
+        const newTags = tags.filter((_, currentIndex ) => {
             return index !== currentIndex
         })
         setTags([...newTags])
@@ -21,11 +21,13 @@ const Tags = () => {
     }
 
   return (
-      <div className="inline-flex mx-auto min-w-full text-sm border-4 my-5 rounded-md px-1">
+       <div className="">
+        <label className='text-base sm:text-base text-right float-right font-semibold' htmlFor='skills'>مهارت ها</label>
+      <div className="inline-flex mx-auto min-w-full text-sm border-4 my-2 rounded-md p-1">
         <input 
         onKeyUp={(event) => event.key === 'Enter' && addTag(event)}
-        className="w-full border-none outline-none" 
-        type='text' placeholder='Enter your tags' />
+        className='w-full border-none text-right outline-none border-2 text-sm sm:text-base border-gray-300'
+        type='text' placeholder='مهارت های مورد نیاز برای وظیفه' />
         <ul className="inline-flex flex-wrap">
             {
                 tags.map((item,index) => {
@@ -37,6 +39,7 @@ const Tags = () => {
             }
         </ul>
       </div>
+       </div>
   )
 }
 

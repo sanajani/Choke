@@ -12,15 +12,7 @@ const HireComponent = () => {
   return (
     <div className='max-w-[400px] mx-auto'>
       <h1 className='text-center text-3xl font-bold my-4'>ثبت آگاهی استخدام</h1>
-        <Formik
-              initialValues={{
-                toggle: false,
-                checked: [],
-              }}
-              onSubmit={async (values) => {
-                alert(JSON.stringify(values, null, 2));
-              }}
-            >
+        <Formik>
           <Form>
             {/* first div */}
             <div className='p-4 shadow-xl rounded-xl'>
@@ -84,6 +76,23 @@ const HireComponent = () => {
                     </div>
                     {/* time of job */}
                     
+                    <div id="checkbox-group">Checked</div>
+          <div role="group" aria-labelledby="checkbox-group">
+            <label>
+              <Field type="checkbox" name="checked" value="One" />
+              One
+            </label>
+            <label>
+              <Field type="checkbox" name="checked" value="Two" />
+              Two
+            </label>
+            <label>
+              <Field type="checkbox" name="checked" value="Three" />
+              Three
+            </label>
+          </div>
+
+
                     {/* end of time of job */}
                 </div>
             </div>

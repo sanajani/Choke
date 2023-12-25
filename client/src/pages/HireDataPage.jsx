@@ -1,11 +1,9 @@
-// import HireComponent from "../components/HireComponent"
-import FormikContainer from "../components/formik/FormikContainer"
+import FormikComponents from "../components/formik/FormikComponents"
 
 const HireDataPage = () => {
   return (
     <div>
-        <FormikContainer/>
-
+        <FormikComponents/>
     </div>
   )
 }

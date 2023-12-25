@@ -1,5 +1,5 @@
+import WhyShouldTakeUs from '../components/WhyShouldTakeUs'
 import aboutSectionImg from '../images/succes2.jpg'
-import { IoMdCheckmark } from 'react-icons/io'
 
 const Hire = () => {
   return (
@@ -13,24 +13,7 @@ const Hire = () => {
               کارمند بعدی شما <br />
               همینجاست
             </h1>
-            <div className='bg-white text-black w-[90%] px-5 rounded-2xl mx-auto py-3'>
-              <h2 className='text-xl text-bold text-right px-5 my-2 md:mb-5'>
-                مزایای ثبت آگهی در کار و پیسه
-              </h2>
-              <p className='text-sm text-right gap-2  flex justify-between my-2'>
-                نمایش آگهی شما بالاتر از بیش از ۶۰۰هزار آگهی‌ وبسایت‌های دیگر
-                <IoMdCheckmark />
-              </p>
-              <p className='text-sm text-right gap-2  flex justify-between my-2'>
-                تماس کارشناس (مرتبط با کارجویان) با شما و بهبود اطلاعات آگهی
-                <IoMdCheckmark />
-              </p>
-              <p className='text-sm text-right gap-2  flex justify-between my-2'>
-                
-                امکان جستجو در اطلاعات کارجویان موجود و انتخاب کارجوی مناسب
-                <IoMdCheckmark />
-              </p>
-            </div>
+            <WhyShouldTakeUs/>
           </div>
           <div className=''>
             <div className='bg-white my-2 text-black w-[90%] px-5 rounded-2xl mx-auto py-3 text-right'>

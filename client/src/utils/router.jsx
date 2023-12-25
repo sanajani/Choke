@@ -24,6 +24,7 @@ const EditProfileProtectRoute = lazy(() => import('../protectedRoutes/EditProfil
 const ProtectSignup = lazy(() => import('../protectedRoutes/ProtectSignup'))
 import Fallback from '../components/Fallback';
 import HireDataPage from '../pages/HireDataPage';
+import JobSecers from '../pages/JobSecers';
 // const HireComponent = lazy(() => import('../pages/HireDataPage'))
 
 export const router = createBrowserRouter(
@@ -33,6 +34,7 @@ export const router = createBrowserRouter(
             <Route index element={<Suspense fallback={<Fallback/>}><Home/></Suspense>} />
             <Route path='contact' element={<Suspense fallback={<Fallback/>}><Contact/></Suspense>}/>
             <Route path='hire-form' element={<HireDataPage/>} />
+            <Route path='jobs' element={<JobSecers/>} />
             <Route path='hire' element={<Suspense fallback={<Fallback/>}><Hire/></Suspense>}/>
             <Route path='signup' element={<Suspense fallback={<Fallback/>}><ProtectSignup><Signup/></ProtectSignup></Suspense>}/>
             <Route path='signin' element={<Suspense fallback={<Fallback/>}><ProtectSignup><Signin/></ProtectSignup></Suspense>}/>
