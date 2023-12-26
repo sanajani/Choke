@@ -21,12 +21,12 @@ const Tags = () => {
     }
 
   return (
-       <div className="">
+       <div className="focus:text-blue-500">
         <label className='text-base sm:text-base text-right float-right font-semibold' htmlFor='skills'>مهارت ها</label>
-      <div className="inline-flex mx-auto min-w-full text-sm border-4 my-2 rounded-md p-1">
+      <div className="focus:border-blue-500 inline-flex mx-auto min-w-full text-sm border-2 my-2 rounded-md p-1">
         <input 
         onKeyUp={(event) => event.key === 'Enter' && addTag(event)}
-        className='w-full border-none text-right outline-none border-2 text-sm sm:text-base border-gray-300'
+        className='w-full border-none  text-right outline-none border-2 text-sm sm:text-base border-gray-300'
         type='text' placeholder='مهارت های مورد نیاز برای وظیفه' />
         <ul className="inline-flex flex-wrap">
             {

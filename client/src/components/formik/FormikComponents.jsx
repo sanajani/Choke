@@ -1,32 +1,47 @@
 import { Formik, Form } from 'formik'
 import Select from 'react-select'
-import FormikControll from './FormikControll'
 import { list_of_districts } from '../../utils/provincename'
 import { FaArrowDown, FaArrowUp } from "react-icons/fa";
 import { useState } from 'react';
 import Tags from '../Tags';
-import FormikTextarea from './FormikTextarea';
-import FormikInput from './FormikInput';
+import FormikControll from './FormikControll';
 import * as Yup from 'yup'
-import { checkBoxOptions,checkBoxLanguages,radioOptionforeducations,genderOfSecer,distanceCheckBox,maridOptions } from './FormValues';
+import { kindOfJobOptionsForCheckbox,checkBoxLanguages,radioOptionforeducations,genderOfSecer,distanceCheckBox,maridOptions } from './FormValues';
 import WhyShouldTakeUs from '../WhyShouldTakeUs';
 
 const FormikComponents = () => {
     const [showMore,setShowMore] = useState();
+    const [selectCity, setSelectCity] = useState(null);
+    // console.log(selectCity);
 
     const initialValues = {
-        radioOptionforeducation: '',
-        checkBoxOption:[],
-        distanceCheckBoxInitialValue: [],
-        checkBoxLanguage:[],
-        initialValueOfgenderOfSeker:'',
-        initailValueOfMarid:''
+        jobLocation:'',
+        jobTitle:'',
+        cityOfJob:'',
+        requiredSkillsForJob:[],
+        kindOfWorkerNeeded: [],
+        possibleToWorkFromLongDistance:'',
+        educationLevelNeededForJob:'',
+        amoundOfPeopleToGetHire:'',
+        languagesNeededForJob:[],
+        genderOFApplier:'',
+        SingleOrMerried:'',
+        jobDesc:'',
+        nameOfJobPoster:'',
+        contactNumberOfJobPoster:''
     }
 
-    const validationSchema = Yup.object({})
+    const validationSchema = Yup.object({
+        jobLocation: Yup.string().required("لطفا موقعیت وظیفه را ذکر کنید"),
+        jobTitle: Yup.string().required("لطفا نام پوست یا وظیفه را ذکر کنید"),
+        jobDesc: Yup.string().required("لطفا درمورد وظیفه معلومات بدهید "),
+        cityOfJob: Yup.string().required("لطفا شعر وظیفه را ذکر کنید"),
+        nameOfJobPoster: Yup.string().required("لطفا نام ارتباط گیرنده را ذکر کنید"),
+        contactNumberOfJobPoster: Yup.string().required("لطفا یک شماره ارتباطی را ذکر کنید"),
+    })
 
-    const onSubmit = () => {
-        alert('hello')
+    const onSubmit = (values) => {
+        console.log(values)
     }
 
   return (
@@ -43,9 +58,9 @@ const FormikComponents = () => {
                 <FormikControll
                     controll='input'
                     label="محل کار"
-                    name='placeofjob'
+                    name='jobLocation'
                     type='text'
-                    id='placeofjob'
+                    id='jobLocation'
                     placeholder='نام شرکت سازمان یا کارگاه محل کار را بنویسید'
                 />
                 <FormikControll
@@ -57,11 +72,12 @@ const FormikComponents = () => {
                     placeholder='مثل داکتر اینجینیر یا حسابدار'
                 />
                 <div className='flex flex-col my-3 mx-1 text-right'>
-                <label  className='text-right my-2 text-sm font-bold sm:text-base'
-                htmlFor='city'>شهر</label>
+                <label  className='text-right my-2 text-sm font-bold sm:text-base' htmlFor='city'>شهر</label>
                 <Select
                 options={list_of_districts}
                 placeholder='شهر یا منطقه این شغل'
+                defaultValue={selectCity}
+                onChange={setSelectCity}
                 />
                 </div>
             </div>
@@ -89,15 +105,15 @@ const FormikComponents = () => {
                         <FormikControll
                             controll='checkbox'
                             label="نحوه همکاری"
-                            name='checkBoxOption'
-                            options={checkBoxOptions}
+                            name='kindOfWorkerNeeded'
+                            options={kindOfJobOptionsForCheckbox}
                         />
                         </div>
                     <div className='my-2'>
                     <FormikControll
                             controll='checkbox'
                             label="امکان دورکاری"
-                            name='distanceCheckBoxInitialValue'
+                            name='possibleToWorkFromLongDistance'
                             options={distanceCheckBox}
                         />
                     </div>
@@ -107,7 +123,7 @@ const FormikComponents = () => {
                         <div className='my-4'>
                             <FormikControll
                                 controll='radio'
-                                name='radioOptionforeducation'
+                                name='educationLevelNeededForJob'
                                 options={radioOptionforeducations}
                                 label="مدرک تحصیلی"
                             />
@@ -120,8 +136,8 @@ const FormikComponents = () => {
                                 controll='input'
                                 type='number'
                                 label="تعداد افرادی که می‌خواهید استخدام کنید"
-                                name='employment'
-                                id='employment'
+                                name='amoundOfPeopleToGetHire'
+                                id='amoundOfPeopleToGetHire'
                                 placeholder='تعداد افراد که قصد استخدام دارید'
                                 left={true}
                                 min='1'
@@ -140,14 +156,14 @@ const FormikComponents = () => {
                         <FormikControll
                             label='زبانها'
                             controll='checkbox'
-                            name='checkBoxOption'
+                            name='languagesNeededForJob'
                             options={checkBoxLanguages}  
                         />
                     </div>
                     <div className='my-4'>
                             <FormikControll
                                 controll='radio'
-                                name='initialValueOfgenderOfSeker'
+                                name='genderOFApplier'
                                 options={genderOfSecer}
                                 label="جنسیت کارجو"
                             />
@@ -156,7 +172,7 @@ const FormikComponents = () => {
                     <div className='my-4'>
                         <FormikControll
                             controll='radio'
-                            name='initailValueOfMarid'
+                            name='SingleOrMerried'
                             options={maridOptions}
                             label="وضعیت تاهل کارجو"
                         />
@@ -169,7 +185,7 @@ const FormikComponents = () => {
 
             {/* about the job */}
             <div className='flex border-t-2 flex-col my-3 mx-1 shadow-2xl p-4 rounded-xl bg-white'>
-                <FormikTextarea
+                <FormikControll
                     name='jobDesc'
                     label='درمورد آگاهی'
                     placeholder='توضیحات کامل شغل شرح وظایف شرایط استخدام نیازمندی ها وغیره'
@@ -183,19 +199,19 @@ const FormikComponents = () => {
             {/* poster contact info */}
             <div className='shadow-2xl rounded-xl mt-8 bg-white py-2 px-2 mb-4 border-t-2'>
                 <h1 className='text-right mt-2 font-semibold tracking-wider text-xl'>شیوه ارتباط با کارجو</h1>
-                <FormikInput
+                <FormikControll
                 label='نام فرد پاسخگو'
                 controll='input'
                 type='text'
-                name='posterName'
-                id='posterName'
+                name='nameOfJobPoster'
+                id='nameOfJobPoster'
                 placeholder='بخشی که پاسخگوی تماس کارجویان است را وارد کنید'
                 />
-                <FormikInput
+                <FormikControll
                 controll='input'
                 label=' شماره تماس'
-                id='posterContactNumber'
-                name='posterContactNumber'
+                id='contactNumberOfJobPoster'
+                name='contactNumberOfJobPoster'
                 type='text'
                 placeholder='شماره تماس'
                 left={true}

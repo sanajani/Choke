@@ -15,7 +15,7 @@ const FormikTextarea = (props) => {
     <Field
         id={name}
         name={name}
-        className='text-right outline-none border-2 p-1 text-sm sm:text-base border-gray-300'
+        className='focus:border-blue-500 placeholder:text-gray-400 text-right outline-none border-2 p-1 text-sm sm:text-base border-gray-900'
         {...rest}        
         as='textarea'
     />

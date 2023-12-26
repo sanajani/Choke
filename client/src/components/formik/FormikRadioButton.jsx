@@ -1,8 +1,9 @@
 /* eslint-disable react/prop-types */
-import {Field} from 'formik'
+import {ErrorMessage, Field} from 'formik'
+import ErrorText from '../ErrorText'
 
 const FormikRadioButton = (props) => {
-    const {name, label, options, ...rest} = props
+    const {name, label, options, className, ...rest} = props
 
   return (
     <div className='text-right'>
@@ -12,11 +13,11 @@ const FormikRadioButton = (props) => {
         <Field name={name} {...rest}>
             {
                 ({field}) => {
-                  return <div className='flex  flex-wrap justify-end'>
+                  return <div className='flex  flex-wrap justify-end' {...className}>
                      {
                      options.map((option) => {
                         return (
-                            <div key={option.value} className='mx-3 my-1 w-[40%]'>
+                            <div key={option.value} className='mx-3 my-1'>
                                  <label htmlFor={option.value}
                                 className='text-right text-base mx-1' 
                                  >{option.key}
@@ -35,6 +36,7 @@ const FormikRadioButton = (props) => {
                 }
             }
         </Field>
+        <ErrorMessage component={ErrorText} name={name}/>
     </div>
   )
 }

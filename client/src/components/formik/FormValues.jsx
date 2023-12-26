@@ -1,9 +1,13 @@
-export const checkBoxOptions = [
+export const kindOfJobOptionsForCheckbox = [
     {key: 'تمام‌وقت', value:'تمام‌وقت'},
     {key: 'پروژه‌ای', value:'پروژه‌ای'},
     {key: 'کاراموزی', value:'کاراموزی'},
     {key: 'نیمه‌وقت', value:'نیمه‌وقت'},
     {key: 'موقت', value:'موقت'},
+]
+export const gender = [
+    {key: 'آقا', value:'آقا'},
+    {key: 'خانم', value:'خانم'},
 ]
 
 export const checkBoxLanguages = [
@@ -25,7 +29,14 @@ export const radioOptionforeducations = [
     {key: 'دکترا', value:'دکترا'},
     {key: 'کاردانی', value:'کاردانی'},
 ]
-
+export const currentJobType = [
+    {key: 'وظیفه دارم', value:'وظیفه دارم'},
+    {key: 'وظیفه ندارم', value:'وظیفه ندارم'},
+]
+export const jobExp = [
+    {key: 'تجربه دارم', value:'تجربه دارم'},
+    {key: 'تجربه ندارم', value:'تجربه ندارم'},
+]
 
 export const genderOfSecer = [
     {key: 'آقا', value:'آقا'},

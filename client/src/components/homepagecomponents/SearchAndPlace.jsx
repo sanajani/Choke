@@ -16,14 +16,13 @@ const SearchAndPlace = () => {
                     >
                         {list_of_districts.map(item => {
                             return (
-                                <option 
+                                <option
                                 className='text-lg' value={item.label} key={item.value}>
                                     {item.value}
                                 </option>
                             )
                         })}
                     </select>
-            {/* <button className="absolute top-3 px-3 right-0"></button> */}
         </div>
     </div>
   )

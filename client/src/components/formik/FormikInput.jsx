@@ -15,10 +15,10 @@ const FormikInput = (props) => {
     <Field
         id={name}
         name={name}
-        className={`${left ? 'text-left' : 'text-right'} outline-none border-2 p-1 text-sm sm:text-base border-gray-300`}
-        {...rest}      
+        className={`${left ? 'text-left' : 'text-right'} placeholder:text-gray-500 focus:border-blue-500 outline-none border-2 p-1 text-sm sm:text-base border-gray-500`}
+        {...rest}
     />
-    <ErrorMessage component={ErrorText} name={name} />
+    <ErrorMessage name={name} component={ErrorText} />
     </div> 
   )
 }

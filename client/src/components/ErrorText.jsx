@@ -2,7 +2,7 @@
 
 const ErrorText = (props) => {
   return (
-    <span className="text-sm text-red-500">{props.children}</span>
+    <span className="text-sm text-red-500 text-right">{props.children}</span>
   )
 }
 
