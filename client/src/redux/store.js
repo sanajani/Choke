@@ -1,9 +1,9 @@
 import {combineReducers,configureStore} from '@reduxjs/toolkit'
 import loadingReducer from './features/loadingSlice'
 import userReducer from './features/userDataSlice'
-import tokenReducer from './features/tokenSlice'
+import phoneNumberReducer from './features/userPhoneNumber'
 
-import {persistReducer, persistStore,   FLUSH,
+import {persistReducer, persistStore, FLUSH,
     REHYDRATE,
     PAUSE,
     PERSIST,
@@ -14,7 +14,7 @@ import storage from 'redux-persist/lib/storage'
 const rootReducer = combineReducers({
     loading: loadingReducer,
     user: userReducer,
-    token: tokenReducer,
+    phoneNumber: phoneNumberReducer,
 })
 const persistConfig = {
     key: 'root',
