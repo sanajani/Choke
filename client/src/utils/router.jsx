@@ -12,6 +12,9 @@ const JobSecers = lazy(() => import('../pages/JobSecers'))
 const UserJobInformationPage = lazy(() => import('../components/userJobInfo/UserJobInformationPage'))
 const PhoneNumberVerifier = lazy(() => import('../pages/PhoneNumberVerifier'))
 
+import ProtectPhoneNumberPage from '../protectedRoutes/ProtectPhoneNumberPage';
+import ProtectedRoutesForPhoneNumber from '../protectedRoutes/ProtectedRoutesForPhoneNumber';
+
 import Fallback from '../components/Fallback';
 
 export const router = createBrowserRouter(
@@ -19,10 +22,10 @@ export const router = createBrowserRouter(
         <>
         <Route path='/' element={<Suspense fallback={<Fallback />}><RootLayout/></Suspense>}>
             <Route index element={<Suspense fallback={<Fallback/>}><Home/></Suspense>} />
-            <Route path='/signup-phone-number' element={<Suspense fallback={<Fallback/>}><PhoneNumberVerifier/></Suspense>} />
+            <Route path='/signup-phone-number' element={<ProtectPhoneNumberPage><PhoneNumberVerifier/></ProtectPhoneNumberPage>} />
             <Route path='jobs' element={<JobSecers/>} />
-            <Route path='hire-form' element={<HireDataPage/>} />
-            <Route path='worker-account' element={<UserJobInformationPage/>} />
+            <Route path='hire-form' element={<ProtectedRoutesForPhoneNumber><HireDataPage/></ProtectedRoutesForPhoneNumber>} />
+            <Route path='worker-account' element={<ProtectedRoutesForPhoneNumber><UserJobInformationPage/></ProtectedRoutesForPhoneNumber>} />
             <Route path='hire' element={<Suspense fallback={<Fallback/>}><Hire/></Suspense>}/>
         </Route>
         <Route path='*' element={<PageNotFound />} />         

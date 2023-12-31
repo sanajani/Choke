@@ -3,16 +3,24 @@ import { initializeApp } from "firebase/app";
 import { getAuth } from 'firebase/auth'
 
 // Your web app's Firebase configuration
-console.log(import.meta.env.VITE_FIREBASE_API_KEY);
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
-  authDomain: import.meta.env.VITE_FIREBASE_AUTHDOMAIN,
-  projectId: import.meta.env.VITE_FIREBASE_PROJECTID,
-  storageBucket: import.meta.env.VITE_FIREBASE_STORAGEBUCKET,
-  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGEINGSENDERID,
-  appId: import.meta.env.VITE_FIREBASE_APPID,
+  authDomain: "auth-job-money-phonenumber.firebaseapp.com",
+  projectId: "auth-job-money-phonenumber",
+  storageBucket: "auth-job-money-phonenumber.appspot.com",
+  messagingSenderId: "608756708190",
+  appId: "1:608756708190:web:560e7f7cb3d0b99c1115cf"
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
-export const authentication = getAuth(app);
+export const app = initializeApp(firebaseConfig);
+export const authentication = getAuth();
+
+
+
+// Your web app's Firebase configuration
+
+// };
+
+// Initialize Firebase
+// const app = initializeApp(firebaseConfig);
