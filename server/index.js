@@ -9,7 +9,7 @@ import bodyParser from 'body-parser';
 
 import userRouter from './routes/user.router.js'
 import { globalErrorHandler } from './controllers/error.controller.js';
-import twilioRouter from './routes/twilio.otp.js'
+import otpPhoneNumberRouter from './routes/user.phonenumber.js';
 
 const app = express();
 app.use(express.json());
@@ -24,7 +24,7 @@ app.listen(PORT,() => {
 
 app.use('/api/v1/user',userRouter)
 app.use('/api/v1/mail',contactRouter)
-app.use('/api/v1/otp',twilioRouter)
+app.use('/api/v1/otp',otpPhoneNumberRouter)
 
 
 // global page not found

@@ -9,7 +9,7 @@ const PageNotFound = lazy(() => import('../pages/PageNotFound'))
 const Hire = lazy(() => import('../pages/Hire'))
 const HireDataPage = lazy(() => import('../pages/HireDataPage'))
 const JobSecers = lazy(() => import('../pages/JobSecers'))
-const UserJobInformationPage = lazy(() => import('../components/userJobInfo/UserJobInformationPage'))
+const UserJobInformationPage = lazy(() => import('../components/workeraccount/UserJobInformationPage'))
 const PhoneNumberVerifier = lazy(() => import('../pages/PhoneNumberVerifier'))
 
 import ProtectPhoneNumberPage from '../protectedRoutes/ProtectPhoneNumberPage';

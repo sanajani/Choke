@@ -1,13 +1,17 @@
 import mongoose from 'mongoose'
 
 const userSchema = mongoose.Schema({
+    phoneNumber:{
+        type:String,
+        required:[true, "Name field is required"]
+    },
     name:{
         type:String,
         required:[true, "Name field is required"]
     },
     email:{
         type:String,
-        required:[true, "Email field is required"],
+        // required:[true, "Email field is required"],
         unique: [true, "Email field should be unique"]
     },
     password:{
@@ -20,16 +24,20 @@ const userSchema = mongoose.Schema({
     },
     isWorker:{
         type: Boolean,
-        default: false
+        default: true
     },
     profileImageURL:{
         type:String
     },
-    province:{
+    city:{
         type:String,
         required: true
     },
-    personalInfo:{
+    currentLocation:{
+        type:String,
+        required: true
+    },
+    userInformation:{
         type:String,
         required: true
     },
@@ -41,15 +49,22 @@ const userSchema = mongoose.Schema({
         type:String,
         required: true
     },
-    experience:{
-        type:String,
-    },
     phoneNumber1:{
         type:String,
         required: true
     },
     phoneNumber2:{
         type:String,
+    },genderOfWorker:{
+        type: String,
+    },educationLevel:{
+        type: String,
+    },jobExp:{
+        type: String,
+    },typeOfJob:{
+        type: []
+    },currentJob:{
+        type: String
     }
 })
 

@@ -2,9 +2,14 @@ import { Formik, Form } from 'formik'
 import * as Yup from 'yup'
 import FormikControll from '../formik/FormikControll'
 import { radioOptionforeducations,currentJobType,jobExp,gender, kindOfJobOptionsForCheckbox } from '../formik/FormValues'
+import {useSelector} from 'react-redux'
+import { IoIosEye,IoMdEyeOff } from "react-icons/io";
+import { useState } from 'react';
+import {api} from '../../utils/api'
 
 const UserJobInformationPage = () => {
-
+  const [showPassword,setShowPassword] = useState(true)
+  const phoneNumberData = useSelector((state) => state.phoneNumber)
 
   const initialValues = {
     name:'',
@@ -18,6 +23,11 @@ const UserJobInformationPage = () => {
     currentJob: '',
     jobExp: '',
     typeOfJob: [],
+    phoneNumber:'',
+    password:'',
+    email:'',
+    phoneNumber1:'',
+    phoneNumber2:'',
   }
 
   const validationSchema = Yup.object({
@@ -27,11 +37,20 @@ const UserJobInformationPage = () => {
     job: Yup.string().required("وظیفه شما الذامی میباشد"),
     userInformation: Yup.string().required("لطفا درمورد خود بگین"),
     genderOfWorker: Yup.string().required("جنسیت شما الذامی میباشد"),
+    phoneNumber1: Yup.string().required("شماره تماس یک"),
+    email: Yup.string(),
+    password: Yup.string().required("رمز مهم است فراموش نکنید"),
   })
 
-  const onSubmit = (values) => {
-    // alert('hello')
-    console.log(values);
+  const onSubmit = async (values) => {
+    values.phoneNumber = phoneNumberData?.phoneNumber
+    // const sentToBackend = values.phoneNumber 
+    try {
+    const response = await api.post('/api/v1/user/signup',values)
+      console.log(response.data);
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   return (
@@ -62,6 +81,46 @@ const UserJobInformationPage = () => {
                    id='lastName'
                    placeholder=' مبینی'
                 />
+                <FormikControll
+                   controll='input'
+                   label="ایمیل آدرس تان را وارد کنید"
+                   name='email'
+                   type='email'
+                   id='email'
+                   placeholder='example@gmail.com'
+                />
+                <FormikControll
+                   controll='input'
+                   label="شماره تماس یک"
+                   name='phoneNumber1'
+                   type='text'
+                   id='phoneNumber1'
+                   placeholder='0780000000'
+                />
+                <FormikControll
+                   controll='input'
+                   label="شماره تماس دو"
+                   name='phoneNumber2'
+                   type='text'
+                   id='phoneNumber2'
+                   placeholder='0799000000'
+                />
+                <div className='relative'>
+                <FormikControll
+                   controll='input'
+                   label="رمز"
+                   name='password'
+                   type={showPassword ? `password` : 'text'}
+                   id='password'
+                   placeholder='هر چی دوست داری بزن'
+                />
+                <button
+                onClick={() => setShowPassword(!showPassword)}
+                className='text-xl absolute top-12 left-4'>{
+                  showPassword ?<IoIosEye />:<IoMdEyeOff/>
+                }                 
+                  </button>
+                </div>
                 <FormikControll
                    controll='input'
                    label="ولایت"
