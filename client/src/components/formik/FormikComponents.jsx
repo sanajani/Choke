@@ -43,7 +43,7 @@ const FormikComponents = () => {
     const onSubmit = (values) => {
         console.log(values)
     }
-    console.log(initialValues);
+    // console.log(initialValues);
   return (
     <div className='max-w-[400px] mx-auto'>
     <h1 className='text-center text-3xl border-b-2 mb-3 font-bold my-4'>ثبت آگاهی استخدام</h1>

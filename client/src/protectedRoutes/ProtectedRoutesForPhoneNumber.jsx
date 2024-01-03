@@ -4,10 +4,6 @@ import { Navigate } from 'react-router-dom';
 
 const ProtectedRoutesForPhoneNumber = ({children}) => {
     const isPhoneNumber = useSelector((state) => state.phoneNumber)
-    // const isPhoneNumber ={
-    //     phoneNumber: true
-    // }
-
     console.log(isPhoneNumber?.phoneNumber);
     if(isPhoneNumber?.phoneNumber){
         return children

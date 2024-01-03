@@ -1,6 +1,8 @@
-import axios from 'axios'
 
-const SERVER_URL = "http://localhost:9808"
+import axios from 'axios';
+
+const SERVER_URL = import.meta.env.SERVER_URL
+
 
 export const api = axios.create({
     baseURL: SERVER_URL|| "http://localhost:9808",
@@ -9,4 +11,3 @@ export const api = axios.create({
         "Content-Type": "application/json",
     }
 })
-

@@ -4,6 +4,7 @@ import FindJobHomePageComponent from '../components/homepagecomponents/FindJobHo
 import { Link } from 'react-router-dom'
 
 const Home = () => {
+
   return (
     <main className=' min-w-full'>
       <div className=' mx-auto py-20'>

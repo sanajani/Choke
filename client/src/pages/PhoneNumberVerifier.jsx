@@ -6,6 +6,8 @@ import { useEffect, useState } from 'react'
 import { showToast } from '../components/toast/ShowToast'
 import ToastContain from '../components/toast/ToastContainer'
 import { useNavigate } from 'react-router-dom'
+import {api} from '../utils/api'
+import {setUser} from '../redux/features/userDataSlice'
 
 const PhoneNumberVerifier = () => {
   const dispatch = useDispatch()
@@ -19,12 +21,10 @@ const PhoneNumberVerifier = () => {
     let timerId;
 
     if (isOTPSend && timeOfCodeSendedtoUser > 1) {
-
       timerId = setTimeout(() => {
         settimeOfCodeSendedtoUser(prevTime => prevTime - 1);
       }, 1000);
     }
-
     return () => clearTimeout(timerId);
   }, [timeOfCodeSendedtoUser,isOTPSend])
 
@@ -48,7 +48,7 @@ const PhoneNumberVerifier = () => {
     e.preventDefault()
     if(phoneNumber.length === 10){
     const phoneNumberWithCountryCode = `+93${phoneNumber}`
-    // console.log(phoneNumberWithCountryCode);
+    console.log(phoneNumberWithCountryCode);
     recapthcaVerifierFunc()
     const appVerifier = window.recaptchaVerifier
     signInWithPhoneNumber(
@@ -83,14 +83,21 @@ const PhoneNumberVerifier = () => {
       let confirmationResult = window.confirmationResult
       confirmationResult
         .confirm(OTPCodeForChecking)
-        .then(result => {
+        .then(async (result) => {
           // User signed in successfully.
           const user = result.user
           const phoneNumber = user?.phoneNumber
+          const isUser = await api.post('/api/v1/otp/phone',{phoneNumber})
+          const userInformation = isUser.data
+          if(userInformation.isUser && userInformation.data){
+            console.log(userInformation?.data);
+            dispatch(setUser(userInformation?.data))
+            navigate('/')
+          }else{
+            navigate('/worker-account')
+          }
           dispatch(getPhoneNumber(phoneNumber))
-          navigate('/worker-account')
           showToast('موفقانه کود درست پود', 'success')
-          // ...
         })
         .catch(error => {
           // User couldn't sign in (bad verification code?)
