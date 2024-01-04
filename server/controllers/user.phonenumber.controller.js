@@ -20,12 +20,3 @@ export const userPhoneNumberOTP = async (req,res,next) => {
         next(new CustomError(error.message, error.statusCode))
     }
 }
-
-export const getAllPhoneNumbers = async (req,res,next) => {
-    try {
-        const users = await userModel.find();
-        return res.status(200).json(users)
-    } catch (error) {
-        next(new CustomError(error.message, error.statusCode))
-    }
-}

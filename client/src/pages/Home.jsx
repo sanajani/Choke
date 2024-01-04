@@ -19,12 +19,20 @@ const Home = () => {
         <div className='w-[90%] mx-auto'>
         <SearchAndPlace />
         </div>
+        <div className='flex w-[500px] mx-auto'>
         <Link
         to='/jobs'
           className='text-center block w-fit mx-auto bg-yellow-300 transition-all hover:bg-gray-600 hover:text-yellow-300 font-bold mt-5 px-4 py-1 rounded-xl '
         >
           جستجو فرصت های شغلی
         </Link>
+        <Link
+        to='/workers'
+          className='text-center block w-fit mx-auto bg-yellow-300 transition-all hover:bg-gray-600 hover:text-yellow-300 font-bold mt-5 px-4 py-1 rounded-xl '
+        >
+          جستجوی کارمند یا کارگر
+        </Link>
+        </div>
         <div className=' bg-gray-100 mt-12 py-6 rounded-md'>
           <p className='text-center py-2 font-semibold text-base sm:text-lg md:text-xl'>
             خدمات بررسی اولیه و جذب نیرو جهت استخدام
